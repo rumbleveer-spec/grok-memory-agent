@@ -1,66 +1,110 @@
 # 🧠 GROK MEMORY AGENT
 
-**Dual AI Agent (Grok + Gemini) with 10-message memory**
+**Dual AI Model Support with Smart Memory**
 
-Built on iPad by **Ankit Rajput** 💪
+Switch between Grok and Gemini AI models seamlessly while maintaining conversation context with 10-message memory buffer.
 
-## 🎯 Features
+## ✨ Features
 
-- 🤖 **Dual AI Models**: Switch between Grok and Gemini
-- 💾 **10-Message Memory**: Keeps last 10 messages for context
-- 🔄 **Model Switching**: Choose model per request
-- 🚀 **Express API**: Simple REST endpoint
+- **Dual AI Models**: Grok Beta + Gemini 1.5 Pro
+- **Smart Memory**: Maintains last 10 messages
+- **Model Switching**: Toggle between AI models
+- **Full Conversations**: Context-aware responses
+- **REST API**: Simple integration
 
-## 📦 Installation
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
-npm install express openai @google/generative-ai dotenv
+npm install
 ```
 
-## 🔐 Setup
+### Setup
 
-1. Create `.env` file:
+1. Copy `.env.example` to `.env`
+2. Add your API keys:
 ```
 GROK_API_KEY=xai-your-key-here
-GEMINI_API_KEY=your-gemini-key
+GEMINI_API_KEY=AIzaSy...
 ```
 
-## 🚀 Run
+### Run
 
 ```bash
-node server.js
+npm start
 ```
 
-## 🧪 Test
+Server will start at `http://localhost:3000`
 
-**With Grok:**
+## 📝 API Usage
+
+### Chat with Grok
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
   -d '{"message":"Hello bhai", "model":"grok"}'
 ```
 
-**With Gemini:**
+### Chat with Gemini
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
-  -d '{"message":"Hello bhai", "model":"gemini"}'
+  -d '{"message":"Explain AI", "model":"gemini"}'
 ```
 
-## 🎨 What Makes it Special?
+### Response
+```json
+{
+  "reply": "AI response here...",
+  "model": "grok",
+  "memory": [
+    {"role": "user", "content": "Hello bhai"},
+    {"role": "assistant", "content": "AI response here..."}
+  ]
+}
+```
 
-✅ Dual AI models in one agent  
-✅ Automatic memory management  
-✅ Context preservation across 10 messages  
-✅ Model flexibility  
-✅ Built on iPad  
+## 🔄 Model Comparison
+
+| Feature | Grok Beta | Gemini 1.5 Pro |
+|---------|-----------|----------------|
+| Speed | Fast | Very Fast |
+| Context | Large | Very Large |
+| Reasoning | Excellent | Excellent |
+| Cost | $5 credits | Free tier |
+
+## 🏗️ Architecture
+
+```
+Memory Agent
+├── Memory Buffer: 10 messages
+├── Model Router: Grok ↔ Gemini
+└── API Layer: Express REST
+```
+
+## 🛠️ Tech Stack
+
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **AI Models**: 
+  - Grok Beta (via OpenAI SDK)
+  - Gemini 1.5 Pro (via Google AI SDK)
+- **Language**: JavaScript
+
+## 📊 Project Status
+
+- ✅ Locally working
+- ✅ Dual model support
+- ✅ Memory management
+- ⏳ Awaiting $5 Grok credits
 
 ## 👨‍💻 Author
 
-**Ankit Rajput**  
-iPad Developer | AI Enthusiast
+**Ankit Rajput**
+
+Built with determination and perseverance!
 
 ---
 
-**Status**: Working Locally  
-**Effort**: 3+ days of dedication! 🔥
+*"3+ din, 100+ errors, iPad pe kiya – main jeet gaya!"*
