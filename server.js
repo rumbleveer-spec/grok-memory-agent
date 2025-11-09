@@ -9,22 +9,22 @@ app.use(express.json());
 const gemini = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const geminiModel = gemini.getGenerativeModel({ model: "gemini-1.5-pro" });
 
-const grok = new OpenAI({
-  apiKey: process.env.GROK_API_KEY,
-  baseURL: "https://api.x.ai/v1"
+const perplexity = new OpenAI({
+  apiKey: process.env.PERPLEXITY_API_KEY,
+  baseURL: "https://api.perplexity.ai"
 });
 
 let memory = [];
 
 app.post('/chat', async (req, res) => {
-  const { message, model = "grok" } = req.body;
+  const { message, model = "perplexity" } = req.body;
   memory.push({ role: "user", content: message });
 
   try {
     let reply;
-    if (model === "grok") {
-      const response = await grok.chat.completions.create({
-        model: "grok-beta",
+    if (model === "perplexity") {
+      const response = await perplexity.chat.completions.create({
+        model: "llama-3.1-sonar-small-128k-online",
         messages: memory.slice(-10)
       });
       reply = response.choices[0].message.content;
@@ -47,13 +47,15 @@ app.post('/chat', async (req, res) => {
 app.get('/', (req, res) => {
   res.send(`
     <pre>
-GROK MEMORY AGENT LIVE!
+DUAL AI MEMORY AGENT LIVE!
 
-curl -X POST /chat -d '{"message":"Hello bhai", "model":"grok"}'
+Perplexity + Gemini | 10 Message Memory
+
+curl -X POST /chat -d '{"message":"Hello bhai", "model":"perplexity"}'
     </pre>
   `);
 });
 
 app.listen(3000, () => {
-  console.log("GROK MEMORY AGENT LIVE: http://localhost:3000");
+  console.log("DUAL AI MEMORY AGENT LIVE: http://localhost:3000");
 });
