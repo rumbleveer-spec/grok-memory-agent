@@ -47,9 +47,10 @@ app.post('/chat', async (req, res) => {
 app.get('/', (req, res) => {
   res.send(`
     <pre>
-DUAL AI MEMORY AGENT LIVE!
+PERPLEXITY MEMORY AGENT LIVE!
 
-Perplexity + Gemini | 10 Message Memory
+Dual AI: Perplexity + Gemini
+10 Message Memory
 
 curl -X POST /chat -d '{"message":"Hello bhai", "model":"perplexity"}'
     </pre>
@@ -57,5 +58,5 @@ curl -X POST /chat -d '{"message":"Hello bhai", "model":"perplexity"}'
 });
 
 app.listen(3000, () => {
-  console.log("DUAL AI MEMORY AGENT LIVE: http://localhost:3000");
+  console.log("PERPLEXITY MEMORY AGENT LIVE: http://localhost:3000");
 });
