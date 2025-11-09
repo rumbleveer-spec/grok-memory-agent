@@ -1,4 +1,4 @@
-# 🧠 DUAL AI MEMORY AGENT
+# 🧠 PERPLEXITY MEMORY AGENT
 
 **Dual AI Agent (Perplexity + Gemini) with 10-message memory**
 
@@ -10,6 +10,7 @@ Built on iPad by **Ankit Rajput** 💪
 - 💾 **10-Message Memory**: Keeps last 10 messages for context
 - 🔄 **Model Switching**: Choose model per request
 - 🚀 **Express API**: Simple REST endpoint
+- ⚡ **Perplexity AI**: Real-time web search + up-to-date info
 
 ## 📦 Installation
 
@@ -25,6 +26,8 @@ PERPLEXITY_API_KEY=pplx-your-key-here
 GEMINI_API_KEY=your-gemini-key
 ```
 
+2. Get Perplexity key: [perplexity.ai/settings/api](https://www.perplexity.ai/settings/api)
+
 ## 🚀 Run
 
 ```bash
@@ -33,18 +36,18 @@ node server.js
 
 ## 🧪 Test
 
-**With Perplexity:**
+**With Perplexity (DEFAULT):**
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
-  -d '{"message":"What is latest in AI?", "model":"perplexity"}'
+  -d '{"message":"Hello bhai", "model":"perplexity"}'
 ```
 
 **With Gemini:**
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
-  -d '{"message":"Explain quantum computing", "model":"gemini"}'
+  -d '{"message":"Hello bhai", "model":"gemini"}'
 ```
 
 ## 🎨 What Makes it Special?
@@ -53,17 +56,8 @@ curl -X POST http://localhost:3000/chat \
 ✅ Automatic memory management  
 ✅ Context preservation across 10 messages  
 ✅ Model flexibility  
-✅ Perplexity with real-time search  
+✅ **Perplexity with real-time search**  
 ✅ Built on iPad  
-
-## 🌟 Model Comparison
-
-| Feature | Perplexity | Gemini |
-|---------|-----------|---------|
-| Real-time Data | ✅ Yes | ❌ No |
-| Speed | Fast | Very Fast |
-| Context | 128k tokens | Very Large |
-| Best For | Current info | General tasks |
 
 ## 👨‍💻 Author
 
@@ -72,5 +66,5 @@ iPad Developer | AI Enthusiast
 
 ---
 
-**Status**: Working with Perplexity + Gemini  
+**Status**: Working Locally  
 **Effort**: 3+ days of dedication! 🔥
