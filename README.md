@@ -1,110 +1,76 @@
-# 🧠 GROK MEMORY AGENT
+# 🧠 DUAL AI MEMORY AGENT
 
-**Dual AI Model Support with Smart Memory**
+**Dual AI Agent (Perplexity + Gemini) with 10-message memory**
 
-Switch between Grok and Gemini AI models seamlessly while maintaining conversation context with 10-message memory buffer.
+Built on iPad by **Ankit Rajput** 💪
 
-## ✨ Features
+## 🎯 Features
 
-- **Dual AI Models**: Grok Beta + Gemini 1.5 Pro
-- **Smart Memory**: Maintains last 10 messages
-- **Model Switching**: Toggle between AI models
-- **Full Conversations**: Context-aware responses
-- **REST API**: Simple integration
+- 🤖 **Dual AI Models**: Switch between Perplexity and Gemini
+- 💾 **10-Message Memory**: Keeps last 10 messages for context
+- 🔄 **Model Switching**: Choose model per request
+- 🚀 **Express API**: Simple REST endpoint
 
-## 🚀 Quick Start
-
-### Installation
+## 📦 Installation
 
 ```bash
-npm install
+npm install express openai @google/generative-ai dotenv
 ```
 
-### Setup
+## 🔐 Setup
 
-1. Copy `.env.example` to `.env`
-2. Add your API keys:
+1. Create `.env` file:
 ```
-GROK_API_KEY=xai-your-key-here
-GEMINI_API_KEY=AIzaSy...
+PERPLEXITY_API_KEY=pplx-your-key-here
+GEMINI_API_KEY=your-gemini-key
 ```
 
-### Run
+## 🚀 Run
 
 ```bash
-npm start
+node server.js
 ```
 
-Server will start at `http://localhost:3000`
+## 🧪 Test
 
-## 📝 API Usage
-
-### Chat with Grok
+**With Perplexity:**
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
-  -d '{"message":"Hello bhai", "model":"grok"}'
+  -d '{"message":"What is latest in AI?", "model":"perplexity"}'
 ```
 
-### Chat with Gemini
+**With Gemini:**
 ```bash
 curl -X POST http://localhost:3000/chat \
   -H "Content-Type: application/json" \
-  -d '{"message":"Explain AI", "model":"gemini"}'
+  -d '{"message":"Explain quantum computing", "model":"gemini"}'
 ```
 
-### Response
-```json
-{
-  "reply": "AI response here...",
-  "model": "grok",
-  "memory": [
-    {"role": "user", "content": "Hello bhai"},
-    {"role": "assistant", "content": "AI response here..."}
-  ]
-}
-```
+## 🎨 What Makes it Special?
 
-## 🔄 Model Comparison
+✅ Dual AI models in one agent  
+✅ Automatic memory management  
+✅ Context preservation across 10 messages  
+✅ Model flexibility  
+✅ Perplexity with real-time search  
+✅ Built on iPad  
 
-| Feature | Grok Beta | Gemini 1.5 Pro |
-|---------|-----------|----------------|
+## 🌟 Model Comparison
+
+| Feature | Perplexity | Gemini |
+|---------|-----------|---------|
+| Real-time Data | ✅ Yes | ❌ No |
 | Speed | Fast | Very Fast |
-| Context | Large | Very Large |
-| Reasoning | Excellent | Excellent |
-| Cost | $5 credits | Free tier |
-
-## 🏗️ Architecture
-
-```
-Memory Agent
-├── Memory Buffer: 10 messages
-├── Model Router: Grok ↔ Gemini
-└── API Layer: Express REST
-```
-
-## 🛠️ Tech Stack
-
-- **Runtime**: Node.js
-- **Framework**: Express.js
-- **AI Models**: 
-  - Grok Beta (via OpenAI SDK)
-  - Gemini 1.5 Pro (via Google AI SDK)
-- **Language**: JavaScript
-
-## 📊 Project Status
-
-- ✅ Locally working
-- ✅ Dual model support
-- ✅ Memory management
-- ⏳ Awaiting $5 Grok credits
+| Context | 128k tokens | Very Large |
+| Best For | Current info | General tasks |
 
 ## 👨‍💻 Author
 
-**Ankit Rajput**
-
-Built with determination and perseverance!
+**Ankit Rajput**  
+iPad Developer | AI Enthusiast
 
 ---
 
-*"3+ din, 100+ errors, iPad pe kiya – main jeet gaya!"*
+**Status**: Working with Perplexity + Gemini  
+**Effort**: 3+ days of dedication! 🔥
